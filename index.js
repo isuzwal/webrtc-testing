@@ -92,7 +92,13 @@ createAnswerBtn.onclick = async () => {
   const answer = await pc.createAnswer();
   await pc.setLocalDescription(answer);
 };
+
 setAnswerBtn.onclick = async () => {
+      if (!pc) {
+    alert("Create Offer or Answer first!");
+    return;
+  }
+
   const answer = JSON.parse(document.getElementById("answer").value);
   await pc.setRemoteDescription(answer);
 };
